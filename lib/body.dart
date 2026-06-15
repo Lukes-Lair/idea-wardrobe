@@ -109,9 +109,8 @@ void initState() {
       child: Column(
         spacing: 20,
         children: [
-          SizedBox(),
           Ideas(list: ideas),
-          ElevatedButton(onPressed: delIdeas, child: Text("Delete all Ideas"))
+          ElevatedButton(onPressed: delIdeas, child: const Text("Delete all Ideas"))
         ],
       ),
     );

@@ -13,18 +13,18 @@ void main() {
         colorScheme: ColorScheme.fromSeed(
           seedColor: mainColor
         ),
-        appBarTheme: AppBarThemeData(
+        appBarTheme: const AppBarThemeData(
           backgroundColor: mainColor,
           foregroundColor: Colors.white
         ),
         scaffoldBackgroundColor: mainColor,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyMedium: TextStyle(color: Colors.white)
         )
 
       ),
 
-      home: Home(),
+      home: const Home(),
       routes: {'newIdea':(context) => Add(bodykey: bodyKey)},
         )
   );
@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
       Navigator.pushNamed(context, "newIdea");
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

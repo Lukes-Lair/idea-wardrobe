@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AddCategory extends StatefulWidget {
-  const AddCategory({required this.func, required this.value, required this.control, required this.all});
+  const AddCategory({super.key, required this.func, required this.value, required this.control, required this.all});
   final void Function(String) func;
   final String? value;
   final TextEditingController control;
@@ -29,13 +28,13 @@ class _AddCategoryState extends State<AddCategory> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text("New Category",style: TextStyle(color: Colors.white, fontSize: 24)),
+                const Text("New Category",style: TextStyle(color: Colors.white, fontSize: 24)),
                 SizedBox(
                   width: 250,
                   child: TextFormField(
                     initialValue: widget.value,
                     decoration: const InputDecoration(hintText: "Category Name"),
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     validator: (value) {
                       if (value!.trim().isEmpty) {
                         return "Category name cannot be blank.";
@@ -51,7 +50,7 @@ class _AddCategoryState extends State<AddCategory> {
                     onSaved: (V) => newName = V!,
                     ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [ 
@@ -62,12 +61,12 @@ class _AddCategoryState extends State<AddCategory> {
                         Navigator.pop(context);
                         widget.control.text = "";
                       }
-                    }, child: Text("Add")),
+                    }, child: const Text("Add")),
             
                     TextButton(onPressed: (){
                       Navigator.pop(context);
                       widget.control.text = "";
-                    }, child: Text("Cancel"))]
+                    }, child: const Text("Cancel"))]
                 )
                
                 ],

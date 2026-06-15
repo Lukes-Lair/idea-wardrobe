@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback func;
-  const MainAppBar({required this.func});
+  const MainAppBar({super.key, required this.func});
 
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-            title: Text("Idea Organizer"),
-            titleTextStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+            title: const Text("Idea Organizer"),
+            titleTextStyle: const TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
             actions:[
               Padding(
-                padding: EdgeInsetsGeometry.directional(end: 15),
+                padding: const EdgeInsetsGeometry.directional(end: 15),
                 child: TextButton(
                   onPressed: func, 
                   style: TextButton.styleFrom(
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                     minimumSize: const Size(80,80),
                     padding: EdgeInsets.zero
                 ), 
-                child: Text("+",style: TextStyle(fontSize: 40))
+                child: const Text("+",style: TextStyle(fontSize: 40))
                 )
               )
             ],
@@ -29,5 +29,5 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
   
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
