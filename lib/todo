@@ -1,3 +1,4 @@
 add category options menu (delete, edit, and add categories)
 when you add a category, it autofills the category dropdown with your new category
 add box shadow to idea boxes
+in ideas.dart, make the format function's values be able to be changed from settings

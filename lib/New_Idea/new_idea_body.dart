@@ -100,6 +100,9 @@ void loadVals() async {
                       if (v.isEmpty) {
                         return "Please input a title.";
                       }
+                      if (v.contains('\n')) {
+                        return 'Title can not have multiple lines';
+                      }
                       return null;
                     },
                     onSaved: (newValue) => title = newValue!,
