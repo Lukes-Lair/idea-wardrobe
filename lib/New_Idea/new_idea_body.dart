@@ -47,11 +47,15 @@ Future<List<String>> readCategories() async {
 
 List<String> categories = [];
 
+List<Idea> ideas = [];
+
 void loadVals() async {
   final data = await readCategories();
+  final ideasList = await readIdeas();
   
   setState((){
     categories = data;
+    ideas = ideasList;
   });
 }
 
@@ -80,8 +84,25 @@ void loadVals() async {
     return Idea(title: title, description: description, category: category, feasibility: feasibility);
   }
 
+  bool exists(String title) {
+
+    final filtered = ideas.where((e) {
+      if(e.title == title) {
+        return true;
+      }
+      return false;
+    });
+
+    if (filtered.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Form(
@@ -98,10 +119,13 @@ void loadVals() async {
                     validator: (value) {
                       final v = value!.toLowerCase().trim();
                       if (v.isEmpty) {
-                        return "Please input a title.";
+                        return "Please input a title";
                       }
                       if (v.contains('\n')) {
                         return 'Title can not have multiple lines';
+                      }
+                      if (exists(v)) {
+                        return "That idea already exists";
                       }
                       return null;
                     },

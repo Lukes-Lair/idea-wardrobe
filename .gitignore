@@ -12,9 +12,6 @@
 .swiftpm/
 migrate_working_dir/
 
-# Custom
-/lib/todo
-
 # IntelliJ related
 *.iml
 *.ipr
