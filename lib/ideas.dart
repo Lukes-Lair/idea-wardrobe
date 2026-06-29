@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ideas_app/body.dart';
 
 class Ideas extends StatefulWidget {
@@ -12,6 +13,7 @@ class Ideas extends StatefulWidget {
 class _IdeasState extends State<Ideas> {
   @override
   Widget build(BuildContext context) {
+    const textColor = Color.fromARGB(255, 224, 224, 224);
     return Column(
       spacing: 0,
       children: [
@@ -22,10 +24,10 @@ class _IdeasState extends State<Ideas> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
-                color: const Color.fromARGB(255, 60, 64, 75),
+                color: const Color.fromARGB(255, 71, 76, 88),
                 border:BoxBorder.all(
-                  color: const Color.fromARGB(255, 86, 92, 107),
-                  width: 1.5
+                  color: const Color.fromARGB(255, 137, 142, 160),
+                  width: 2
                 )
                 ),
               child: Padding(
@@ -37,25 +39,38 @@ class _IdeasState extends State<Ideas> {
                         const SizedBox(width: 6),
                         Text(
                           e.title, 
-                          style: const TextStyle(
-                            fontSize: 20
-                          ),
+                          style: GoogleFonts.tirra(
+                            textStyle: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: textColor,
+                            ),
+                          )
                         ),
                       ],
                     ),
 
                     const Divider(
                       indent: 1,
-                      endIndent: 1,
+                      endIndent: 210, //need this to be about the end of the title text. Also make it consistent on all screen sizes
                       height: 9,
+                      color: Color.fromARGB(255, 90, 92, 99),
                     ),
+                    const SizedBox(height: 4,),
                 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const SizedBox(width: 13),
+                        const SizedBox(width: 7),
                         Flexible(
-                          child: Text(e.description)
+                          child: Text(
+                            e.description,
+                            style: GoogleFonts.tirra(
+                              fontSize: 15,
+                              wordSpacing: 0.5,
+                              color: textColor,
+                              ),
+                          )
                         ),
                         const SizedBox(width: 13),
                       ],
@@ -64,14 +79,26 @@ class _IdeasState extends State<Ideas> {
                     const SizedBox(height: 10,),
             
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Flexible(
-                          child: Text('Category: ${e.category}')
+                          child: Text(
+                            'Category: ${e.category}',
+                            style: GoogleFonts.lora(
+                              letterSpacing: 0.2,
+                              color: textColor,
+                              ),
+                          )
                         ),
             
                         Flexible(
-                          child: Text('Feasibility: ${e.feasibility}/5')
+                          child: Text(
+                            'Feasibility: ${e.feasibility}',
+                            style: GoogleFonts.lora(
+                              letterSpacing: 0.2, 
+                              color: textColor
+                            ),
+                          )
                         )
                       ],
                     )

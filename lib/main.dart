@@ -6,7 +6,7 @@ import 'package:ideas_app/main_app_bar.dart';
 final GlobalKey<BodyState> bodyKey = GlobalKey<BodyState>();
 
 void main() {
-  const Color mainColor = Color.fromARGB(255, 20, 22, 27);
+  const Color mainColor = Color.fromARGB(255, 44, 47, 56);
   runApp(
     MaterialApp(
       theme: ThemeData(
